@@ -10,6 +10,7 @@ import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import { Plus, Trash } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {};
 
@@ -49,31 +50,44 @@ const CreateCourseForm = (props: Props) => {
               );
             }}
           />
+          <AnimatePresence>
+            {form.watch("units").map((_, index) => {
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{
+                    opacity: { duration: 0.2 },
+                    height: { duration: 0.2 },
+                  }}
+                >
+                  <FormField
+                    key={index}
+                    control={form.control}
+                    name={`units.${index}`}
+                    render={({ field }) => {
+                      return (
+                        <FormItem className="flex flex-col items-start w-full sm:items-center sm:flex-row">
+                          <FormLabel className="flex-[1] text-xl">
+                            Unit {index + 1}
+                          </FormLabel>
+                          <FormControl className="flex-[6]">
+                            <Input
+                              placeholder="Enter the subtopics of the course"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      );
+                    }}
+                  />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
 
-          {form.watch("units").map((_, index) => {
-            return (
-              <FormField
-                key={index}
-                control={form.control}
-                name={`units.${index}`}
-                render={({ field }) => {
-                  return (
-                    <FormItem className="flex flex-col items-start w-full sm:items-center sm:flex-row">
-                      <FormLabel className="flex-[1] text-xl">
-                        Unit {index + 1}
-                      </FormLabel>
-                      <FormControl className="flex-[6]">
-                        <Input
-                          placeholder="Enter the subtopics of the course"
-                          {...field}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  );
-                }}
-              />
-            );
-          })}
           <div className="flex items-center justify-center mt-4">
             <Separator className="flex-[1]" />
             <div className="mx-4">
@@ -102,6 +116,9 @@ const CreateCourseForm = (props: Props) => {
             </div>
             <Separator className="flex-[1]" />
           </div>
+          <Button type="submit" size="lg" className="w-full mt-6">
+            {`Let's Go!`}
+          </Button>
         </form>
       </Form>
     </div>
