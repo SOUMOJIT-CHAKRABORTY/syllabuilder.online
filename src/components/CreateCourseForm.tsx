@@ -11,12 +11,21 @@ import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import { Plus, Trash } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 type Props = {};
 
 type Input = z.infer<typeof createChapterSchema>;
 
 const CreateCourseForm = (props: Props) => {
+  const { mutate: createChapters, isLoading } = useMutation({
+    mutationFn: async ({ title, units }: Input) => {
+      const response = await axios.post("/api/course/createChapters");
+      return response.data;
+    },
+  });
+
   const form = useForm<Input>({
     resolver: zodResolver(createChapterSchema),
     defaultValues: {
