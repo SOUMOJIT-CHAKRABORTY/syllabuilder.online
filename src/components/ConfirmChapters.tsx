@@ -1,11 +1,11 @@
 "use client";
 import { Chapter, Course, Unit } from "@prisma/client";
 import React from "react";
-import ChapterCart from "./ChapterCart";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ChapterCard, { chapterCardHandler } from "./ChapterCart";
 
 type Props = {
   course: Course & {
@@ -16,6 +16,14 @@ type Props = {
 };
 
 const ConfirmChapters = ({ course }: Props) => {
+  const chapterRefs: Record<string, React.RefObject<chapterCardHandler>> = {};
+  course.units.forEach((unit) => {
+    unit.chapters.forEach((chapter) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      chapterRefs[chapter.id] = React.useRef(null);
+    });
+  });
+
   return (
     <div className="w-full mt-4">
       {course.units.map((unit, unitIndex) => {
@@ -28,7 +36,8 @@ const ConfirmChapters = ({ course }: Props) => {
             <div className="mt-3">
               {unit.chapters.map((chapter, chapterIndex) => {
                 return (
-                  <ChapterCart
+                  <ChapterCard
+                    ref={chapterRefs[chapter.id]}
                     key={chapter.id}
                     chapter={chapter}
                     chapterIndex={chapterIndex}
@@ -51,7 +60,15 @@ const ConfirmChapters = ({ course }: Props) => {
             <ChevronLeft className="w-4 h-4 mr-2" strokeWidth={4} />
             Back
           </Link>
-          <Button type="button" className="ml-4 font-semibold">
+          <Button
+            type="button"
+            className="ml-4 font-semibold"
+            onClick={() => {
+              Object.values(chapterRefs).forEach((ref) => {
+                ref.current?.triggerLoad();
+              });
+            }}
+          >
             Generate
             <ChevronRight className="w-4 h-4 ml-2" strokeWidth={4} />
           </Button>
