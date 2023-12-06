@@ -1,4 +1,5 @@
 import axios from "axios";
+import { YoutubeTranscript } from "youtube-transcript";
 
 export async function youtubeSearch(query: string) {
   const searchQuery = encodeURIComponent(query);
@@ -15,4 +16,21 @@ export async function youtubeSearch(query: string) {
     return null;
   }
   return data.items[0].id.videoId;
+}
+
+export async function getTranscript(videoId: string) {
+  try {
+    let transcript_arr = await YoutubeTranscript.fetchTranscript(videoId, {
+      lang: "en",
+      country: "EN",
+    });
+
+    let transcript = "";
+    for (let t of transcript_arr) {
+      transcript += t.text + " ";
+    }
+    return transcript.replaceAll("\n", " ");
+  } catch (error) {
+    return "";
+  }
 }
