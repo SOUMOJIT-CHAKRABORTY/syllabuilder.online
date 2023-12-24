@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import {
   DropdownMenu,
@@ -24,9 +25,9 @@ const UserAccountNav = ({ user }: Props) => {
         <UserAvatar user={user} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <div className="flex items-center justify-start gaqp-2 p-2">
+        <div className="flex items-center justify-start gap-2 p-2">
           <div className="flex flex-col space-y-1 leading-none">
-            {user?.name && <p className="font-md">{user.name}</p>}
+            {user?.name && <p className="font-medium">{user.name}</p>}
             {user?.email && (
               <p className="w-[200px] truncate text-sm text-secondary-foreground">
                 {user.email}
@@ -34,6 +35,7 @@ const UserAccountNav = ({ user }: Props) => {
             )}
           </div>
         </div>
+
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onSelect={() => {
@@ -41,7 +43,7 @@ const UserAccountNav = ({ user }: Props) => {
           }}
           className="text-red-600 cursor-pointer"
         >
-          Sign Out
+          Sign out
           <LogOut className="w-4 h-4 ml-2" />
         </DropdownMenuItem>
       </DropdownMenuContent>

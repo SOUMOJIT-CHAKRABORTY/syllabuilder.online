@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 
 type Props = {};
 
-const SigninButton = (props: Props) => {
+const SignInButton = (props: Props) => {
   return (
     <Button
       variant="ghost"
@@ -18,4 +18,4 @@ const SigninButton = (props: Props) => {
   );
 };
 
-export default SigninButton;
+export default SignInButton;

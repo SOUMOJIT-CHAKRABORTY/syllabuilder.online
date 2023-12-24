@@ -11,10 +11,10 @@ type Props = {
   };
 };
 
-const createChapters = async ({ params: { courseId } }: Props) => {
+const CreateChapters = async ({ params: { courseId } }: Props) => {
   const session = await getAuthSession();
   if (!session?.user) {
-    redirect("/gallery");
+    return redirect("/gallery");
   }
   const course = await prisma.course.findUnique({
     where: {
@@ -39,7 +39,7 @@ const createChapters = async ({ params: { courseId } }: Props) => {
       <h1 className="text-5xl font-bold">{course.name}</h1>
 
       <div className="flex p-4 mt-5 border-none bg-secondary">
-        <Info className="flex-none w-8 h-8 mr-4 text-primary" />
+        <Info className="w-12 h-12 mr-3 text-blue-400" />
         <div>
           We generated chapters for each of your units. Look over them and then
           click the Button to confirm and continue
@@ -50,4 +50,4 @@ const createChapters = async ({ params: { courseId } }: Props) => {
   );
 };
 
-export default createChapters;
+export default CreateChapters;

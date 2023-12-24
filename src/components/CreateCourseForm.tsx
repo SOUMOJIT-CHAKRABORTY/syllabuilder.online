@@ -1,11 +1,10 @@
 "use client";
-
-import { createChapterSchema } from "@/validators/course";
-import { zodResolver } from "@hookform/resolvers/zod";
-import React, { use } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import React from "react";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form";
+import { z } from "zod";
+import { createChaptersSchema } from "@/validators/course";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
@@ -15,12 +14,13 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useToast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
+import SubscriptionAction from "./SubscriptionAction";
 
-type Props = {};
+type Props = { isPro: boolean };
 
-type Input = z.infer<typeof createChapterSchema>;
+type Input = z.infer<typeof createChaptersSchema>;
 
-const CreateCourseForm = (props: Props) => {
+const CreateCourseForm = ({ isPro }: Props) => {
   const router = useRouter();
   const { toast } = useToast();
   const { mutate: createChapters, isLoading } = useMutation({
@@ -32,9 +32,8 @@ const CreateCourseForm = (props: Props) => {
       return response.data;
     },
   });
-
   const form = useForm<Input>({
-    resolver: zodResolver(createChapterSchema),
+    resolver: zodResolver(createChaptersSchema),
     defaultValues: {
       title: "",
       units: ["", "", ""],
@@ -45,9 +44,8 @@ const CreateCourseForm = (props: Props) => {
     if (data.units.some((unit) => unit === "")) {
       toast({
         title: "Error",
-        description: "Please fill all the fields",
+        description: "Please fill all the units",
         variant: "destructive",
-        duration: 5000,
       });
       return;
     }
@@ -56,7 +54,6 @@ const CreateCourseForm = (props: Props) => {
         toast({
           title: "Success",
           description: "Course created successfully",
-          duration: 5000,
         });
         router.push(`/create/${course_id}`);
       },
@@ -66,12 +63,13 @@ const CreateCourseForm = (props: Props) => {
           title: "Error",
           description: "Something went wrong",
           variant: "destructive",
-          duration: 5000,
         });
       },
     });
   }
+
   form.watch();
+
   return (
     <div className="w-full">
       <Form {...form}>
@@ -93,6 +91,7 @@ const CreateCourseForm = (props: Props) => {
               );
             }}
           />
+
           <AnimatePresence>
             {form.watch("units").map((_, index) => {
               return (
@@ -118,7 +117,7 @@ const CreateCourseForm = (props: Props) => {
                           </FormLabel>
                           <FormControl className="flex-[6]">
                             <Input
-                              placeholder="Enter the subtopics of the course"
+                              placeholder="Enter subtopic of the course"
                               {...field}
                             />
                           </FormControl>
@@ -137,21 +136,22 @@ const CreateCourseForm = (props: Props) => {
               <Button
                 type="button"
                 variant="secondary"
+                className="font-semibold"
                 onClick={() => {
                   form.setValue("units", [...form.watch("units"), ""]);
                 }}
-                className="font-semibold"
               >
                 Add Unit
                 <Plus className="w-4 h-4 ml-2 text-green-500" />
               </Button>
+
               <Button
                 type="button"
                 variant="secondary"
+                className="font-semibold ml-2"
                 onClick={() => {
                   form.setValue("units", form.watch("units").slice(0, -1));
                 }}
-                className="font-semibold ml-2"
               >
                 Remove Unit
                 <Trash className="w-4 h-4 ml-2 text-red-500" />
@@ -160,15 +160,16 @@ const CreateCourseForm = (props: Props) => {
             <Separator className="flex-[1]" />
           </div>
           <Button
-            type="submit"
             disabled={isLoading}
-            size="lg"
+            type="submit"
             className="w-full mt-6"
+            size="lg"
           >
-            {`Let's Go!`}
+            Lets Go!
           </Button>
         </form>
       </Form>
+      {!isPro && <SubscriptionAction />}
     </div>
   );
 };

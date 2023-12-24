@@ -10,8 +10,8 @@ type Props = {
 const UserAvatar = ({ user }: Props) => {
   return (
     <Avatar>
-      {user?.image ? (
-        <div className="relative w-full h-full aspect-square">
+      {user.image ? (
+        <div className="relative w-ful h-full aspect-square">
           <Image
             fill
             src={user.image}
