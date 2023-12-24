@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import SignInButton from "./SignInButton";
+import SignInButton from "./utils/SignInButton";
 // import { getAuthSession } from "@/lib/auth";
 
 import UserAccountNav from "./UserAccountNav";
