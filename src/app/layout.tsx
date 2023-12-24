@@ -10,6 +10,7 @@ const lexend = Lexend({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "syllabuilder.online",
+  description: "Create any syllabus with ease using AI.",
 };
 
 export default function RootLayout({
