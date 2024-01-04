@@ -10,8 +10,7 @@ Syllabuilder is a web application built using Next.js, NextAuth, Prisma, Postgre
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
