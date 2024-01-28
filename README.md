@@ -1,6 +1,6 @@
 # Syllabuilder
 
-Syllabuilder is a web application built using Next.js, NextAuth, Prisma, PostgreSQL, and integrates with the OpenAI API to generate personalized courses for users. This README provides an overview of the project, installation instructions, and other relevant information.
+Syllabuilder is a web application built using Next.js, NextAuth, Prisma, PlanateScale(MySQL), and integrates with the OpenAI API to generate personalized courses for users. This README provides an overview of the project, installation instructions, and other relevant information.
 
 ## Table of Contents
 
