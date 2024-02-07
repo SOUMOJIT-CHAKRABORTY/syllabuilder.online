@@ -13,12 +13,17 @@ Syllabuilder is a web application designed to generate personalized courses for 
 
 ## Tech Stack
 
-- [Next.js](https://nextjs.org/)
-- [NextAuth](https://next-auth.js.org/)
-- [Prisma](https://www.prisma.io/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [OpenAI API](https://beta.openai.com/)
-- [DigitalOcean](https://www.digitalocean.com/)
+<div style="display: flex; flex-wrap: wrap;">
+  <img src="https://img.shields.io/badge/Next.js-%23000000.svg?style=flat&logo=next.js&logoColor=white" alt="Next.js" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/NextAuth-%23000000.svg?style=flat&logo=next.js&logoColor=white" alt="NextAuth" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/Prisma-%2307405e.svg?style=flat&logo=prisma&logoColor=white" alt="Prisma" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/MySQL-%234479A1.svg?style=flat&logo=mysql&logoColor=white" alt="MySQL" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/OpenAI-%23555555.svg?style=flat&logo=openai&logoColor=#F88D32" alt="OpenAI API" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/PlanetScale-%234287F5.svg?style=flat&logo=planetscale&logoColor=white" alt="PlanetScale" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/Docker-%232496ED.svg?style=flat&logo=docker&logoColor=white" alt="Docker" style="margin-right: 10px; height: 30px;">
+  <img src="https://img.shields.io/badge/React%20Query-%23000000.svg?style=flat&logo=react&logoColor=white" alt="React Query" style="height: 30px;">
+</div>
+
 
 ## Installation
 
