@@ -26,7 +26,11 @@ Syllabuilder.online is a web application designed to generate personalized cours
 
 ## Project Showcase
 
-[![Project Showcase Video](https://img.youtube.com/vi/WO782Er7CdQ/0.jpg)](https://www.youtube.com/watch?v=WO782Er7CdQ)
+<div style="display: flex; justify-content: center;">
+  <a href="https://www.youtube.com/watch?v=WO782Er7CdQ" target="_blank">
+    <img src="https://img.youtube.com/vi/WO782Er7CdQ/0.jpg" alt="Project Showcase Video" style="width: 70%; max-width: 800px;">
+  </a>
+</div>
 
 ## Installation
 
