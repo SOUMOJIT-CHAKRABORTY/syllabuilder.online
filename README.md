@@ -1,25 +1,15 @@
 # Syllabuilder
 
-Syllabuilder is a web application built using Next.js, NextAuth, Prisma, PlanateScale(MySQL), and integrates with the OpenAI API to generate personalized courses for users. This README provides an overview of the project, installation instructions, and other relevant information.
-
-## Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Deployment](#deployment)
-
+Syllabuilder is a web application designed to generate personalized courses for users. It integrates with Next.js, NextAuth, Prisma, PlanateScale (MySQL), and utilizes the OpenAI API for course generation.
 
 ## Features
 
-- **User Authentication:** Secure user authentication and authorization using NextAuth.
-- **Database Management:** Utilizes Prisma with PostgreSQL for efficient and reliable data storage.
-- **OpenAI API Integration:** Generates personalized courses based on user input using the OpenAI API.
-- **Next.js Features:** Takes advantage of server-side rendering, client-side rendering, and other Next.js optimizations.
-- **CI/CD with GitHub Actions:** Implements continuous integration and deployment using GitHub Actions.
-- **User-Friendly Interface:** Provides a user-friendly input form for generating personalized courses.
+- **User Authentication:** Secure authentication and authorization using NextAuth.
+- **Database Management:** Prisma with PostgreSQL for efficient data storage.
+- **OpenAI API Integration:** Generates personalized courses based on user input.
+- **Next.js Optimization:** Utilizes server-side rendering and client-side rendering for enhanced performance.
+- **CI/CD with GitHub Actions:** Implements continuous integration and deployment.
+- **User-Friendly Interface:** Provides an intuitive input form for course generation.
 
 ## Tech Stack
 
@@ -32,44 +22,64 @@ Syllabuilder is a web application built using Next.js, NextAuth, Prisma, Planate
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/syllabuilder.git
+   git clone https://github.com/SOUMOJIT-CHAKRABORTY/syllabuilder.git
    cd syllabuilder
+   ```
 
-Install dependencies:
+2. **Install dependencies:**
 
-bash
-Copy code
-npm install
-Configuration
-Configure NextAuth:
+   ```bash
+   npm install
+   ```
 
-Follow the NextAuth documentation to set up authentication providers.
+## Configuration
 
-Configure Prisma:
+- **NextAuth:** Follow the NextAuth documentation to set up authentication providers.
+  
+- **Prisma:** Set up your database connection in the `schema.prisma` file. Replace the connection URL with your MySQL database.
 
-Set up your database connection in the schema.prisma file. Replace the connection URL with your PostgreSQL database.
+- **OpenAI API:** Obtain API credentials from OpenAI and set them in your environment variables.
 
-Configure OpenAI API:
+   ```bash
+   NEXT_PUBLIC_OPENAI_API_KEY=your_openai_api_key
+   ```
 
-Obtain API credentials from OpenAI and set them in your environment variables.
+## Usage
 
-bash
-Copy code
-NEXT_PUBLIC_OPENAI_API_KEY=your_openai_api_key
-Usage
-Start the development server:
+1. **Start the development server:**
 
-bash
-Copy code
-npm run dev
-The application will be accessible at http://localhost:3000.
+   ```bash
+   npm run dev
+   ```
 
-Visit the website and use the input form to generate personalized courses.
+   The application will be accessible at http://localhost:3000.
 
-Deployment
-Deploy the application to DigitalOcean or your preferred hosting provider. Make sure to set the production environment variables, including database connection and OpenAI API key.
+2. **Visit the website and use the input form to generate personalized courses.**
 
-Configure GitHub Actions for automated CI/CD by updating the workflow file in the .github/workflows directory.
+## Running with Docker Compose
+
+1. **Install Docker and Docker Compose if you haven't already.**
+
+2. **Build and run the Docker containers:**
+
+   ```bash
+   docker-compose up --build
+   ```
+   
+   This command will build the Docker images and start the containers.
+
+
+### **Access the application:**
+
+Once the containers are running, you can access the application at [http://localhost:3000](http://localhost:3000).
+   
+## Deployment
+
+- Deploy the application to DigitalOcean or your preferred hosting provider.
+  
+- Set the production environment variables, including database connection and OpenAI API key.
+  
+- Configure GitHub Actions for automated CI/CD by updating the workflow file in the `.github/workflows` directory.
