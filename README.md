@@ -1,6 +1,6 @@
-# Syllabuilder
+# Syllabuilder.online
 
-Syllabuilder is a web application designed to generate personalized courses for users. It integrates with Next.js, NextAuth, Prisma, PlanateScale (MySQL), and utilizes the OpenAI API for course generation.
+Syllabuilder.online is a web application designed to generate personalized courses for users. It integrates with Next.js, NextAuth, Prisma, PlanateScale (MySQL), and utilizes the OpenAI API for course generation.
 
 ## Features
 
@@ -30,8 +30,8 @@ Syllabuilder is a web application designed to generate personalized courses for 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/SOUMOJIT-CHAKRABORTY/syllabuilder.git
-   cd syllabuilder
+   git clone https://github.com/SOUMOJIT-CHAKRABORTY/syllabuilder.online.git
+   cd syllabuilder.online
    ```
 
 2. **Install dependencies:**
