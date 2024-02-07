@@ -24,6 +24,9 @@ Syllabuilder.online is a web application designed to generate personalized cours
   <img src="https://img.shields.io/badge/React%20Query-%23000000.svg?style=flat&logo=react&logoColor=white" alt="React Query" style="height: 30px;">
 </div>
 
+## Project Showcase
+
+[![Project Showcase Video](https://img.youtube.com/vi/WO782Er7CdQ/0.jpg)](https://www.youtube.com/watch?v=WO782Er7CdQ)
 
 ## Installation
 
