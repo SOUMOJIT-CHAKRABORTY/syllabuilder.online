@@ -5,7 +5,7 @@ Syllabuilder.online is a web application designed to generate personalized cours
 ## Features
 
 - **User Authentication:** Secure authentication and authorization using NextAuth.
-- **Database Management:** Prisma with PostgreSQL for efficient data storage.
+- **Database Management:** Prisma with MySQL for efficient data storage.
 - **OpenAI API Integration:** Generates personalized courses based on user input.
 - **Next.js Optimization:** Utilizes server-side rendering and client-side rendering for enhanced performance.
 - **CI/CD with GitHub Actions:** Implements continuous integration and deployment.
